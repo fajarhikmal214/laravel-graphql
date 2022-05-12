@@ -1,0 +1,11 @@
+extend type Mutation {
+    login(
+        email: String @rules(apply: ["required", "email"])
+        password: String @rules(apply: ["required"])
+        device_name: String @rules(apply: ["required", "string"])
+    ): String!
+}
+
+extend type Query {
+    me: User! @guard @auth
+}
